@@ -1,2 +1,3 @@
-# NEETCODE-ROADMAP
-A structured roadmap following NeetCode’s problem set. Topic-wise LeetCode solutions with explanations, clean Python code, and progressive learning path to strengthen DSA skills and prepare for coding interviews.
+# NEETCODE ROADMAP
+
+A structured roadmap following NeetCode’s problem set. This repository contains topic-wise LeetCode solutions with explanations, clean Python implementations, and a progressive learning path to strengthen Data Structures & Algorithms skills and prepare for coding interviews.
