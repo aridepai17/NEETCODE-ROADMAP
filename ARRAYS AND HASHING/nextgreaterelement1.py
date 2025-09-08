@@ -9,7 +9,7 @@ Return an array ans of length nums1.length such that ans[i] is the next greater 
 '''
 
 # Solution 1: Brute Force using HashMap
-def nextGreaterElement(nums1, nums2):
+def nextGreaterElement1(nums1, nums2):
     hashMap = {}
     i = 0
     
@@ -52,7 +52,7 @@ Thus, the space complexity is O(n) for the hash map.
 '''
 
 # Solution 2: Using Monotonic Stack and HashMap
-def nextGreaterElement(nums1, nums2):
+def nextGreaterElement2(nums1, nums2):
     hashMap = {}
     stack = []
     
@@ -89,3 +89,34 @@ The result array `answer` will store m elements.
 Since nums1 is a subset of nums2, m <= n.
 Thus, the space complexity is dominated by the hash map and the stack, making it O(n).
 '''
+
+# Test Cases
+nums1 = [4,1,2], nums2 = [1,3,4,2]
+print(nextGreaterElement2(nums1, nums2)) # Output: [-1, 3, -1]
+
+nums1 = [2,4], nums2 = [1,2,3,4]
+print(nextGreaterElement2(nums1, nums2)) # Output: [3, -1]
+
+nums1 = [1,3,5,2,4], nums2 = [6,5,4,3,2,1,7]
+print(nextGreaterElement2(nums1, nums2)) # Output: [7, 7, 7, 7, 7]
+
+nums1 = [3,2,1], nums2 = [3,2,1]
+print(nextGreaterElement2(nums1, nums2)) # Output: [-1, -1, -1]
+
+nums1 = [1,2,3], nums2 = [1,2,3]
+print(nextGreaterElement2(nums1, nums2)) # Output: [2, 3, -1]
+
+nums1 = [7,8], nums2 = [1,2,3,4,5,6,7,8]
+print(nextGreaterElement2(nums1, nums2)) # Output: [8, -1]
+
+nums1 = [1], nums2 = [1]
+print(nextGreaterElement2(nums1, nums2)) # Output: [-1]
+
+nums1 = [], nums2 = [1,2,3]
+print(nextGreaterElement2(nums1, nums2)) # Output: []
+
+nums1 = [6, 7], nums2 = [7, 6]
+print(nextGreaterElement2(nums1, nums2)) # Output: [-1, -1]
+
+nums1 = [137, 59, 92], nums2 = [137, 59, 92]
+print(nextGreaterElement2(nums1, nums2)) # Output: [-1, 92, -1]
