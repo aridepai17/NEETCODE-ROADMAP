@@ -71,15 +71,15 @@ Space Complexity: O(U) or O(1)
 def canConstruct3(ransomNote, magazine):
     freq = [0] * 26
     
-    for char in freq:
+    for char in magazine:
         freq[ord(char) - ord('a')] += 1
         
-        for char in ransomNote:
-            index = freq[ord(char) - ord('a')]
+    for char in ransomNote:
+        index = ord(char) - ord('a')
             
-            if index <= 0:
-                return False
-            freq[index] -= 1
+        if freq[index] <= 0:
+            return False
+        freq[index] -= 1
             
     return True
 
