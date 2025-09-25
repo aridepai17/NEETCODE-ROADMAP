@@ -7,7 +7,7 @@ Each boat carries at most two people at the same time, provided the sum of the w
 Return the minimum number of boats to carry every given person.
 '''
 
-def numRescueBoats(people):
+def numRescueBoats(people, limit):
     people.sort()
     boats = 0
     left = 0
