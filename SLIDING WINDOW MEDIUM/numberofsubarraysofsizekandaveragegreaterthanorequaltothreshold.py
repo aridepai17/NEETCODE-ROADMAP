@@ -14,7 +14,7 @@ def numOfSubarrays(arr, k, threshold):
     
     for right in range(n):
         currentSum += arr[right]
-        if right - left == k:
+        if right - left + 1 == k:
             if currentSum >= minSumRequired:
                 count += 1
             currentSum -= arr[left]
