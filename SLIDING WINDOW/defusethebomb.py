@@ -17,10 +17,10 @@ def decrypt(code, k):
     left = 0
     
     for right in range(n + abs(k)):
-        currentSum += code(right % n)
+        currentSum += code[right % n]
         
         if right - left + 1 > abs(k):
-            currentSum -= code(left % n)
+            currentSum -= code[left % n]
             left = (left + 1) % n
             
         if right - left + 1 == abs(k):
