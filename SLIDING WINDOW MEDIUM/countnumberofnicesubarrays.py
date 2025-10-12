@@ -23,7 +23,7 @@ def numberOfSubarrays(nums, k):
         if odd == k:
             while not nums[middle] % 2 == 1:
                 middle += 1
-            result += (middle + left) + 1
+            result += (middle - left) + 1
             
     return result
 
