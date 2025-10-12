@@ -13,8 +13,8 @@ def permutationString(s1, s2):
     s2Count = [0] * 26
     
     for i in range(len(s1)):
-        s1Count(ord(s1[i]) - ord('a')) += 1
-        s2Count(ord(s2[i]) - ord('a')) += 1
+        s1Count[ord(s1[i]) - ord('a')] += 1
+        s2Count[ord(s2[i]) - ord('a')] += 1
         
     if s1Count == s2Count:
         return True
