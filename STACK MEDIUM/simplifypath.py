@@ -1,10 +1,9 @@
 # SIMPLIFY PATH
 
 '''
-You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. Your task is to transform this absolute path into its simplified canonical path.
-
+You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. 
+Your task is to transform this absolute path into its simplified canonical path.
 The rules of a Unix-style file system are as follows:
-
 A single period '.' represents the current directory.
 A double period '..' represents the previous/parent directory.
 Multiple consecutive slashes such as '//' and '///' are treated as a single slash '/'.
