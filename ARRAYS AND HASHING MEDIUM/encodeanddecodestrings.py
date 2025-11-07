@@ -18,7 +18,7 @@ def decode(s):
     
     while i < len(s):
         j = i
-        while str[j] != "#":
+        while s[j] != "#":
             j += 1
         length = int(s[i:j])
         start = j + 1
