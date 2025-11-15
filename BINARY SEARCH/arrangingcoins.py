@@ -32,7 +32,6 @@ Space Complexity: O(1)
 def arrangingCoins2(n):
     left = 1
     right = n
-    result = 0
     
     while left <= right:
         mid = (left + right) // 2
@@ -42,9 +41,8 @@ def arrangingCoins2(n):
             right = mid - 1
         else:
             left = mid + 1
-            result = max(result, mid)
-            
-    return result
+        
+    return right
 
 '''
 Time Complexity: O(log n)
@@ -56,7 +54,7 @@ Time Complexity: O(log n)
 - Therefore, the overall time complexity is O(log n).
 
 Space Complexity: O(1)
-- The algorithm uses a constant amount of extra space for variables: `left`, `right`, `result`, `mid`, and `coins`.
+- The algorithm uses a constant amount of extra space for variables: `left`, `right`, `mid`, and `coins`.
 - No additional data structures are created that scale with the input size.
 - Therefore, the space complexity is O(1).
 '''
