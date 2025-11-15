@@ -74,12 +74,12 @@ def countOfAtoms(formula):
             element = formula[i:j]
 
             # Parse optional numeric count following the element symbol
-            count_str = ""
+            countNo = ""
             # Read full integer multiplier for this element (if any)
             while j < len(formula) and formula[j].isdigit():
-                count_str += formula[j]
+                countNo += formula[j]
                 j += 1
-            count = int(count_str) if count_str else 1
+            count = int(countNo) if countNo else 1
 
             # Record element count in current (innermost) scope
             currentMap = stack[-1]
