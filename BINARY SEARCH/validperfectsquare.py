@@ -8,9 +8,6 @@ You must not use any built-in library function, such as sqrt.
 '''
 
 # Brute Force Solution
-from tkinter import N
-
-
 def validPerfectSquare1(num):
     for i in range(1, num + 1):
         if i * i == num:
@@ -36,7 +33,7 @@ Space Complexity: O(1)
 # Binary Search Solution
 def validPerfectSquare2(num):
     left = 1
-    right = N
+    right = len(num) - 1
     
     while left <= right:
         mid = (left + right) // 2
