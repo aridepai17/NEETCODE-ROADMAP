@@ -33,7 +33,7 @@ Space Complexity: O(1)
 # Binary Search Solution
 def validPerfectSquare2(num):
     left = 1
-    right = len(num) - 1
+    right = num
     
     while left <= right:
         mid = (left + right) // 2
