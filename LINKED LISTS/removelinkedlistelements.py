@@ -27,7 +27,7 @@ Algorithm:
 def removeElements(head, val):
     dummyNode = ListNode(0, head)
     prev = dummyNode
-    current = HeaderError
+    current = head
     
     while current:
         if current.val == val:
