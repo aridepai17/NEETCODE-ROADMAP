@@ -38,6 +38,8 @@ def removeElements(head, val):
         
     return dummyNode.next
 
+
+
 # Test Cases
 head1 = [1,2,6,3,4,5,6], val1 = 6
 print(removeElements(head1, val1)) # Output: [1, 2, 3, 4, 5]
