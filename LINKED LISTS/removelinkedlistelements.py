@@ -38,7 +38,12 @@ def removeElements(head, val):
         
     return dummyNode.next
 
+'''
+Time Complexity: O(N), where N is the number of nodes in the linked list.
+- We iterate through the linked list once, performing constant time operations for each node.
 
+Space Complexity: O(1), as we are only using a few extra pointers (dummyNode, prev, current) and not allocating any additional data structures that grow with the input size.
+'''
 
 # Test Cases
 head1 = [1,2,6,3,4,5,6], val1 = 6
