@@ -31,6 +31,15 @@ def deleteDuplicates(head):
         
     return head
 
+'''
+Time Complexity: O(N), where N is the number of nodes in the linked list.
+- The outer while loop iterates through each unique node once.
+- The inner while loop skips duplicate nodes. In the worst case, each node is visited a constant number of times (once by the outer loop, and potentially once by the inner loop's condition check).
+- Therefore, the total time complexity is O(N).
+
+Space Complexity: O(1), as we are only using a single pointer (`current`) and not allocating any additional data structures that grow with the input size.
+'''
+
 # Test Cases
 head1 = [1,1,2]
 print(deleteDuplicates(head1)) # Output: [1,2]
