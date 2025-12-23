@@ -70,7 +70,7 @@ def mergeNodes2(head):
         while current.next.val != 0:
             node.val += current.next.val
             current = current.next
-        current.next = current.next
+        current = current.next
         node.next = current.next
         
     return head.next
