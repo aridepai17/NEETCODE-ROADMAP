@@ -1,4 +1,4 @@
-# MERGE SUM OF BST
+# MERGE TWO BINARY TREES        
 
 '''
 You are given two binary trees root1 and root2.
