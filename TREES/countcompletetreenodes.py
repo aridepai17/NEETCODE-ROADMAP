@@ -22,8 +22,38 @@ ALGORITHM (O(N) Solution - Simple DFS):
    a. Recursively call `countNodes` on the `left` child: `countNodes(root.left)`.
    b. Recursively call `countNodes` on the `right` child: `countNodes(root.right)`.
    c. Return `1` (for the current node) plus the count of nodes in the left subtree and the count of nodes in the right subtree.
+   
+ALGORITHM (O(log^2 N) Solution - Optimized for Complete Binary Trees):
+
+1. Define a function `countNodes2` that takes the `root` of the complete binary tree as input.
+2. Define a helper function `leftHeight(node)`:
+   a. Initialize `h = 0`.
+   b. While `node` is not `None`:
+      - Increment `h`.
+      - Move `node` to its `left` child: `node = node.left`.
+   c. Return `h`.
+3. Define a helper function `rightHeight(node)`:
+   a. Initialize `h = 0`.
+   b. While `node` is not `None`:
+      - Increment `h`.
+      - Move `node` to its `right` child: `node = node.right`.
+   c. Return `h`.
+4. Base Case: If `root` is `None`, return `0`.
+5. Calculate the height of the leftmost path (`lh`) and the rightmost path (`rh`) from the `root`.
+   a. `lh = leftHeight(root)`
+   b. `rh = rightHeight(root)`
+6. If `lh` is equal to `rh`:
+   - This means the subtree rooted at `root` is a perfect binary tree (all levels are completely filled).
+   - The number of nodes in a perfect binary tree of height `h` is `2^h - 1`.
+   - Return `(2 ** lh) - 1`.
+7. Else (if `lh` is not equal to `rh`):
+   - This means the last level is not completely filled, and the tree is not perfect.
+   - The total number of nodes is `1` (for the current `root`) plus the count of nodes in its `left` subtree and the count of nodes in its `right` subtree.
+   - Recursively call `countNodes2` on `root.left` and `root.right`.
+   - Return `1 + countNodes2(root.left) + countNodes2(root.right)`.
 '''
 
+# O(n) Solution
 def countNodes(root):
     if not root:
         return 0
@@ -36,6 +66,45 @@ This is because in the worst case (a skewed tree or a complete tree where we tra
 Space Complexity: O(H), where H is the height of the tree.
 This is due to the recursion stack. In the worst case (a skewed tree), H can be N.
 In the best case (a balanced tree), H is log N.
+'''
+
+# O(log^2 N) time Solution
+def countNodes2(root):
+    def leftHeight(node):
+        h = 0
+        while node:
+            h += 1
+            node = node.left
+        return h
+    
+    def rightHeight(node):
+        h = 0
+        while node:
+            h += 1
+            node = node.right
+        return h
+    
+    if not root:
+        return 0
+    
+    lh = leftHeight(root)
+    rh = rightHeight(root)
+    
+    if lh == rh:
+        return (2 ** lh) - 1
+    
+    return 1 + countNodes2(root.left) + countNodes2(root.right)
+
+'''
+Time Complexity: O(log^2 N), where N is the number of nodes in the tree.
+In the worst case, we traverse down the tree for `leftHeight` and `rightHeight` which takes O(H) = O(log N) time.
+In the recursive step, we make at most two recursive calls. However, due to the property of complete binary trees,
+at least one of the subtrees will have a full height, allowing us to calculate its node count in O(log N) time.
+The recursion depth is O(log N). So, it's O(log N * log N) = O(log^2 N).
+
+Space Complexity: O(H), where H is the height of the tree.
+This is due to the recursion stack. For a complete binary tree, H is log N.
+So, the space complexity is O(log N).
 '''
 
 # Test Cases
