@@ -5,8 +5,45 @@ You are given the root node of a binary search tree (BST) and a value to insert 
 It is guaranteed that the new value does not exist in the original BST.
 Notice that there may exist multiple valid ways for the insertion, as long as the tree remains a BST after insertion. You can return any of them.
 '''
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
+'''
+ALGORITHM (Iterative Solution):
 
+1. Define a function `insertIntoBST` that takes the `root` of the BST and the `val` to insert as input.
+2. If the `root` is `None`, create a new `TreeNode` with `val` and return it (the new node becomes the root).
+3. Initialize a `current` pointer to the `root`.
+4. Enter a `while True` loop:
+   a. If `val` is greater than `current.val`:
+      - If `current.right` is `None`:
+         - Create a new `TreeNode` with `val` and assign it to `current.right`.
+         - Return the original `root` (insertion complete).
+      - Else:
+         - Move `current` to its `right` child: `current = current.right`.
+   b. Else (if `val` is less than `current.val`):
+      - If `current.left` is `None`:
+         - Create a new `TreeNode` with `val` and assign it to `current.left`.
+         - Return the original `root` (insertion complete).
+      - Else:
+         - Move `current` to its `left` child: `current = current.left`.
+
+ALGORITHM (Recursive Solution):
+
+1. Define a function `insertIntoBST` that takes the `root` of the BST and the `val` to insert as input.
+2. Base Case: If the `root` is `None`, create a new `TreeNode` with `val` and return it. This new node will be inserted at the correct position.
+3. Recursive Step:
+   a. If `val` is greater than `root.val`:
+      - Recursively call `insertIntoBST` on the `right` child: `root.right = insertIntoBST(root.right, val)`.
+      - The result of this recursive call (either the existing right child or a new node) is assigned back to `root.right`.
+   b. Else (if `val` is less than `root.val`):
+      -      - Recursively call `insertIntoBST` on the `left` child: `root.left = insertIntoBST(root.left, val)`.
+      - The result of this recursive call (either the existing left child or a new node) is assigned back to `root.left`.
+4. Return the `root` of the current subtree.
+'''
 
 # Iterative Solution
 def insertIntoBST(root, val):
