@@ -5,6 +5,37 @@ Given a binary tree root and a linked list with head as the first node.
 Return True if all the elements in the linked list starting from the head correspond to some downward path connected in the binary tree otherwise return False.
 In this context downward path means a path that starts at some node and goes downwards.
 '''
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+'''
+ALGORITHM:
+
+This problem can be solved using a combination of Depth First Search (DFS) for both the binary tree and the linked list.
+We need two main functions:
+1. A helper function `helper(listNode, treeNode)` that checks if a linked list path starting from `listNode` matches a downward path in the binary tree starting from `treeNode`.
+2. The main function `isSubPath(head, root)` that iterates through all possible starting nodes in the binary tree and calls the helper function.
+
+`helper(listNode, treeNode)` function:
+   a. Base Case 1: If `listNode` is `None`, it means we have successfully matched the entire linked list, so return `True`.
+   b. Base Case 2: If `treeNode` is `None` but `listNode` is not `None`, it means we ran out of tree nodes before matching the entire linked list, so return `False`.
+   c. If `listNode.val` is not equal to `treeNode.val`, then this path does not match, so return `False`.
+   d. Recursive Step: If the values match, recursively call `helper` for the next node in the linked list and the left child of the current tree node, OR the next node in the linked list and the right child of the current tree node.
+      - Return `helper(listNode.next, treeNode.left) or helper(listNode.next, treeNode.right)`.
+
+`isSubPath(head, root)` function:
+   a. First, check if the linked list `head` can be matched starting from the current `root` of the binary tree by calling `helper(head, root)`. If it returns `True`, we found a subpath, so return `True`.
+   b. If `root` is `None`, it means we have exhausted all tree nodes and haven't found a match, so return `False`.
+   c. Recursively call
+'''
 
 def isSubPath(head, root):
     def helper(listNode, treeNode):
