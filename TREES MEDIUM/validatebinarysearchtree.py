@@ -69,7 +69,7 @@ def isValidBST(root):
     queue = collections.deque([(root, float('-inf'), float('inf'))])
     
     while queue:
-        node, lower, upper = queue.popleft()
+        node, low, high = queue.popleft()
         
         if not (low < node.val < high):
             return False
