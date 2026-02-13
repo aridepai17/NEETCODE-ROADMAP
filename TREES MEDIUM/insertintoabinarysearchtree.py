@@ -52,7 +52,7 @@ def insertIntoBST(root, val):
     
     current = root
     while True:
-        if val > current.right:
+        if val > current.val:
             if not current.right:
                 current.right = TreeNode(val)
                 return root
