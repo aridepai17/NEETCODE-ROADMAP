@@ -24,7 +24,7 @@ The algorithm:
 4. Track the longest palindrome found
 '''
 
-# Using Two Pointers and Sliding Window (has a bug - returns early)
+# Using Two Pointers and Sliding Window
 def longestPalindromeBroken(s):
     result = ""
     resultLength = 0
@@ -50,7 +50,7 @@ def longestPalindromeBroken(s):
             left -= 1
             right += 1
             
-        return result  # BUG: Returns too early!
+    return result
     
 
 # Using Helper function (Correct version)
