@@ -100,4 +100,4 @@ print(result9) # Expected: 0
 # Test Case 10: Single character repeated
 s10 = "aaaaa"
 result10 = countSubstrings(s10)
-print(result10) # Expected: 15 (n*(n+1)/2 = 5*6/2 = 15)
+print(result10) # Expected: 15 (n*(n+1)/2 = 5*6/2 = 15) 
